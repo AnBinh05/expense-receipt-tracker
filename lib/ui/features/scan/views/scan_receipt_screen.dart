@@ -428,10 +428,14 @@ class _ScanReceiptScreenState extends State<ScanReceiptScreen> with SingleTicker
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Xác nhận thông tin hóa đơn',
-              style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+            Expanded(
+              child: Text(
+                'Xác nhận thông tin hóa đơn',
+                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
+            const SizedBox(width: 8.0),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
               decoration: BoxDecoration(
@@ -487,6 +491,7 @@ class _ScanReceiptScreenState extends State<ScanReceiptScreen> with SingleTicker
             Expanded(
               flex: 5,
               child: DropdownButtonFormField<ExpenseCategory>(
+                isExpanded: true,
                 initialValue: vm.category,
                 decoration: const InputDecoration(
                   labelText: 'Danh mục',
@@ -497,10 +502,17 @@ class _ScanReceiptScreenState extends State<ScanReceiptScreen> with SingleTicker
                   return DropdownMenuItem(
                     value: cat,
                     child: Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(cat.icon, color: cat.color, size: 16.0),
                         const SizedBox(width: 6.0),
-                        Text(cat.displayName, style: const TextStyle(fontSize: 13.0)),
+                        Flexible(
+                          child: Text(
+                            cat.displayName,
+                            style: const TextStyle(fontSize: 13.0),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
                       ],
                     ),
                   );

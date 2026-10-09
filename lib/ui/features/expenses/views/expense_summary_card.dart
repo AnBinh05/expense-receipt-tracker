@@ -127,11 +127,15 @@ class ExpenseSummaryCard extends StatelessWidget {
                     const SizedBox(height: 5.0),
                     Row(
                       children: [
-                        Text(
-                          displayDate,
-                          style: theme.textTheme.bodySmall?.copyWith(
-                            color: theme.colorScheme.onSurfaceVariant,
-                            fontWeight: FontWeight.w500,
+                        Flexible(
+                          child: Text(
+                            displayDate,
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         const SizedBox(width: 8.0),
