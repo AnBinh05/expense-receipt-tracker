@@ -69,8 +69,8 @@ void main() {
           providers: [
             ChangeNotifierProvider<ExpenseViewModel>.value(value: expenseVm),
           ],
-          child: MaterialApp(
-            home: const ExpenseListScreen(),
+          child: const MaterialApp(
+            home: ExpenseListScreen(),
           ),
         ),
       );
